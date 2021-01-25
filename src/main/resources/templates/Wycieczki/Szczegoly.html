@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        p.moj {
+            padding-bottom: 15px;
+            border: 1px;
+            border-style: solid;
+            border-color: dodgerblue;
+        }
+
+        div.zdj {
+            padding-bottom: 20px;
+        }
+
+        div.but {
+            padding-top: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+</div>
+<div class="container">
+    <div class="row">
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-sm-5">
+            <p class="text-center">ID:</p>
+            <p th:text="${wycieczka.idWycieczki}" class="text-center moj"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-sm-5">
+            <p class="text-center">Start:</p>
+            <p th:text="${wycieczka.start}" class="text-center moj"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-sm-5">
+            <p class="text-center">Meta:</p>
+            <p th:text="${wycieczka.meta}" class="text-center moj"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-sm-5">
+            <p class="text-center">Wojewodztwo:</p>
+            <p th:text="${wycieczka.wojewodztwo}" class="text-center moj"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-sm-5">
+            <p class="text-center">Data:</p>
+            <p th:text="${wycieczka.data}" class="text-center moj"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-sm-5">
+            <p class="text-center">Dlugosc:</p>
+            <p th:text="${wycieczka.dlugosc}" class="text-center moj"></p>
+        </div>
+    </div>
+        <div class="row" th:each="zdjecie : ${zdjecia}">
+            <div class="rounded mx-auto d-block zdj">
+                <img class="mx-auto d-block" th:src="@{'/zdjecia/' + ${zdjecie.idMultimedi}}" style="width:300px;height:300px;">
+            </div>
+        </div>
+
+
+
+    <div class="row"></div>
+    <th:block th:if="${button}">
+
+
+    <form method="POST" enctype="multipart/form-data" action="/Wycieczki/DodajZdjecie">
+
+    <div class="row">
+        <div class="col-2 offset-sm-5">
+            <label class="text-center">Dodaj zdjęcie do wycieczki. Maksymalnie 6</label> <br/>
+            <input type="file" name="file" accept="image/jpeg">
+        </div>
+        <input type="hidden" th:field="*{wycieczka.idWycieczki}">
+    </div>
+
+        <div class="row">
+            <div class="col-2 offset-sm-5 but center-block">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+            <div class="col-md-8"></div>
+        </div>
+    </form>
+    </th:block>
+</div>
+</body>
+</html>

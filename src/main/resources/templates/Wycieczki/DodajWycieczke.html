@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Dodaj wycieczke</title>
+    <style>
+        div.moj {
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+</div>
+<div class="container">
+    <form method="POST" action="/Wycieczki/DodajWycieczke" th:obcject="${Wycieczka}">
+        <div class="row moj">
+            <div class="col-md-6 offset-md-3">
+                <label for="start">Start</label>
+                <input type="text" class="form-control" id="start" th:field="*{Wycieczka.start}">
+            </div>
+        </div>
+
+
+        <div class="row moj">
+            <div class="col-md-6 offset-md-3">
+                <label for="meta">Meta</label>
+                <input type="text" class="form-control" id="meta" th:field="*{Wycieczka.meta}">
+            </div>
+        </div>
+
+
+        <div class="row moj">
+            <div class="col-md-6 offset-md-3">
+                <label for="wojewodztwo">Wojewodztwo</label>
+                <input type="text" class="form-control" id="wojewodztwo" th:field="*{Wycieczka.wojewodztwo}">
+            </div>
+        </div>
+
+        <div class="row moj">
+            <div class="col-md-6 offset-md-3">
+                <label for="data">Data</label>
+                <input type="date" class="form-control" id="data" name="data"
+                       value="2021-01-28"
+                       min="2021-01-01" max="2030-12-31"
+                       format="dd-MM-yyyy" >
+
+            </div>
+        </div>
+
+        <div class="row moj">
+            <div class="col-md-6 offset-md-3">
+                <label for="dlugosc">Dlugosc</label>
+                <input type="number" class="form-control" id="dlugosc" th:field="*{Wycieczka.dlugosc}">
+            </div>
+        </div>
+        <div class="row moj">
+            <div class="col-md-3"></div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+            <div class="col-md-8"></div>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

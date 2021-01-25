@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+</div>
+<div class="container">
+    <table class="table table-dark">
+        <tr>
+
+            <th scope="col">ID</th>
+            <th scope="col">Start</th>
+            <th scope="col">Meta</th>
+            <th scope="col">Wojewodztwo</th>
+            <th scope="col">Data</th>
+            <th scope="col">Dlugosc</th>
+            <th sec:authorize="hasRole('ROLE_user')" scope="col">Szczegóły</th>
+
+
+
+        </tr>
+        <tr th:each="wycieczka : ${wycieczki}">
+            <th scope="row" th:text="${wycieczka.idWycieczki}"></th>
+            <th th:text="${wycieczka.start}"></th>
+            <th th:text="${wycieczka.meta}"></th>
+            <th th:text="${wycieczka.wojewodztwo}"></th>
+            <th th:text="${wycieczka.data}"></th>
+            <th th:text="${wycieczka.dlugosc}"></th>
+
+            <th sec:authorize="hasRole('ROLE_user')">
+                <a th:href="@{/Wycieczki/{id}(id=${wycieczka.idWycieczki})}"  th:if="${wycieczka.idUzytkownika==user.IDuser}">
+                    <button >Szczegóły</button>
+                </a>
+
+                    <p th:unless="${wycieczka.idUzytkownika==user.IDuser}">To nie twoja wycieczka</p>
+            </th>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

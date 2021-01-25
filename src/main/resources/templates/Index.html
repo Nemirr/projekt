@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona Główna</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+</div>
+<div class="container">
+<div class="d-flex justify-content-center align-items-center container">
+    Witam na stronie wycieczek. Aby wyświetlić wycieczki przejdż do zakładki &nbsp<a href="/Wycieczki/Lista">lista</a>.
+    Zaloguj się aby dodać wycieczke.
+
+</div>
+</div>
+</body>
+</html>

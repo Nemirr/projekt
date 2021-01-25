@@ -11,7 +11,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long IDuser;
 
-    String email;
     String haslo;
     String login;
     String role;
@@ -24,8 +23,7 @@ public class User {
         this.role = role;
     }
 
-    public User(String email, String haslo, String login, String role) {
-        this.email = email;
+    public User(String haslo, String login, String role) {
         this.haslo = haslo;
         this.login = login;
         this.role = role;
@@ -40,14 +38,6 @@ public class User {
 
     public void setIDuser(Long IDuser) {
         this.IDuser = IDuser;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getHaslo() {

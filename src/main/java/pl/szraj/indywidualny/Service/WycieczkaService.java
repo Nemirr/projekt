@@ -4,8 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.szraj.indywidualny.Entity.Wycieczka;
 import pl.szraj.indywidualny.Repository.WycieczkaRepository;
 
-import java.util.List;
-
 @Service
 public class WycieczkaService {
 WycieczkaRepository wycieczkaRepository;

@@ -1,6 +1,5 @@
 package pl.szraj.indywidualny.Controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,18 +11,10 @@ import pl.szraj.indywidualny.Entity.Wycieczka;
 import pl.szraj.indywidualny.Repository.WycieczkaRepository;
 import pl.szraj.indywidualny.Service.MultimediaService;
 import pl.szraj.indywidualny.Service.UserService;
-import pl.szraj.indywidualny.Service.WycieczkaService;
-import sun.invoke.empty.Empty;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.security.Principal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @Controller
 public class WycieczkiController {
